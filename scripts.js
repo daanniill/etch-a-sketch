@@ -25,14 +25,24 @@ function hover() {
 function changeSize() {
     const change_size = document.getElementById('size_selector');
     change_size.addEventListener('click', function() {
-        let input = prompt('Enter a size between 2-100', 2)
+        let input = prompt('Enter a size between 2-100')
         while (input > 100 || input < 2) {
-            input = prompt('Enter a size between 2-100', 2)
+            input = prompt('Please enter a correct value. Enter a size between 2-100')
         }
         createGrid(input);
     });
 }
 
+function refresh() {
+    const refresh_button = document.getElementById('refresh');
+    refresh_button.addEventListener('click', function() {
+        const grid = document.querySelector(".grid");
+        let grid_size = Math.sqrt(grid.childElementCount);
+        createGrid(grid_size)
+    })
+}
 
-changeSize()
+
 createGrid(16)
+changeSize()
+refresh()
