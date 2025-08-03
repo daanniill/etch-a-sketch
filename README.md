@@ -57,6 +57,6 @@ A simple and fun Etch-a-Sketch-style drawing application built with vanilla Java
 
 -JavaScript (Vanilla)
 
-📄 **License
+**License**
 
 This project is open source and available under the MIT License.
