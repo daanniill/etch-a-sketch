@@ -51,11 +51,12 @@ A simple and fun Etch-a-Sketch-style drawing application built with vanilla Java
 🌓 Dark mode toggle
 
 🧑‍💻 Built With
-HTML5
+- HTML5
 
-CSS3
+-CSS3
 
-JavaScript (Vanilla)
+-JavaScript (Vanilla)
 
-📄 License
+📄 **License
+
 This project is open source and available under the MIT License.
