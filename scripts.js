@@ -1,4 +1,4 @@
-function createGrid(grid_size) {
+function createGrid(grid_size, hover_color) {
     let box_num = grid_size * grid_size
     let box_size = 640 / grid_size
     const grid = document.querySelector(".grid")
@@ -10,10 +10,15 @@ function createGrid(grid_size) {
         box.setAttribute("class", "box")
         grid.appendChild(box)
     }
-    hover()
+    if (hover_color === true) {
+        hover_black()
+    }
+    else {
+        hover_rainbow()
+    }
 }
 
-function hover() {
+function hover_black() {
     const boxes = document.querySelectorAll(".box")
     boxes.forEach(box => {
         box.dataset.opacity = 0;
@@ -28,6 +33,33 @@ function hover() {
     });
 }
 
+function hover_rainbow() {
+    const boxes = document.querySelectorAll(".box");
+    boxes.forEach(box => {
+        box.dataset.opacity = 0; // initial opacity
+        box.addEventListener('mouseover', () => {
+            let currentOpacity = parseFloat(box.dataset.opacity);
+
+            // First hover: assign random color
+            if (!box.dataset.color) {
+                const r = Math.floor(Math.random() * 256);
+                const g = Math.floor(Math.random() * 256);
+                const b = Math.floor(Math.random() * 256);
+                const color = `${r}, ${g}, ${b}`;
+                box.dataset.color = color;
+            }
+
+            // Increase opacity
+            if (currentOpacity < 1) {
+                currentOpacity = Math.min(currentOpacity + 0.1, 1);
+                box.dataset.opacity = currentOpacity;
+                box.style.backgroundColor = `rgba(${box.dataset.color}, ${currentOpacity})`;
+            }
+        });
+    });
+}
+
+
 function changeSize() {
     const change_size = document.getElementById('size_selector');
     change_size.addEventListener('click', function() {
@@ -35,7 +67,7 @@ function changeSize() {
         while (input > 100 || input < 2) {
             input = prompt('Please enter a correct value. Enter a size between 2-100')
         }
-        createGrid(input);
+        createGrid(input, true);
     });
 }
 
@@ -44,10 +76,10 @@ function refresh() {
     refresh_button.addEventListener('click', function() {
         const grid = document.querySelector(".grid");
         let grid_size = Math.sqrt(grid.childElementCount);
-        createGrid(grid_size)
+        createGrid(grid_size, true)
     })
 }
 
-createGrid(16)
+createGrid(16, true)
 changeSize()
 refresh()
