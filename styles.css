@@ -1,3 +1,29 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+div {
+    text-align: center;
+}
+
+button {
+    margin: 15px;
+    width: 110px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 3px;
+    padding: 10px;
+    font-weight: bold;
+    transition: background-color 0.5s ease-in-out;
+    transition: color 0.5s ease-in-out;
+}
+
+button:hover {
+    color: white;
+    background-color: black;
+}
+
 .main {
     display: flex;
     justify-content: center ;
@@ -20,7 +46,16 @@
 
 .side_bar {
     display: flex;
+    align-items: center;
+    padding: 15% 0;
+    gap: 20px;
     flex-direction: column;
     width: 20%;
     margin-right: 50px;
 }
+
+.title {
+    font-size: 38px;
+    font-family: "Lucida Console", monospace;
+}
+
