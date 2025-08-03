@@ -80,6 +80,22 @@ function refresh() {
     })
 }
 
+function colorSelectors() {
+    const black = document.getElementById('black');
+    const rainbow = document.getElementById('rainbow');
+    black.addEventListener('click', function () {
+        const grid = document.querySelector(".grid");
+        let grid_size = Math.sqrt(grid.childElementCount);
+        createGrid(grid_size, true)
+    })
+    rainbow.addEventListener('click', function () {
+        const grid = document.querySelector(".grid");
+        let grid_size = Math.sqrt(grid.childElementCount);
+        createGrid(grid_size, false)
+    })
+}
+
 createGrid(16, true)
 changeSize()
 refresh()
+colorSelectors()
