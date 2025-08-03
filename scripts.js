@@ -6,4 +6,14 @@ function createGrid() {
         grid.appendChild(box)
     }
 }
+
+function hover() {
+    const boxes = document.querySelectorAll(".box")
+    boxes.forEach(box => {
+        box.addEventListener('mouseover', () => {
+            box.style.backgroundColor = 'black';
+        });
+    });
+}
 createGrid()
+hover()
