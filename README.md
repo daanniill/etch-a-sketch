@@ -53,9 +53,9 @@ A simple and fun Etch-a-Sketch-style drawing application built with vanilla Java
 🧑‍💻 Built With
 - HTML5
 
--CSS3
+- CSS3
 
--JavaScript (Vanilla)
+- JavaScript (Vanilla)
 
 **License**
 
