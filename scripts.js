@@ -16,8 +16,14 @@ function createGrid(grid_size) {
 function hover() {
     const boxes = document.querySelectorAll(".box")
     boxes.forEach(box => {
+        box.dataset.opacity = 0;
         box.addEventListener('mouseover', () => {
-            box.style.backgroundColor = 'black';
+            let currentOpacity = parseFloat(box.dataset.opacity);
+            if (currentOpacity < 1) {
+                currentOpacity = Math.min(currentOpacity + 0.1, 1);
+                box.dataset.opacity = currentOpacity;
+                box.style.backgroundColor = `rgba(0, 0, 0, ${currentOpacity})`;
+            }
         });
     });
 }
@@ -41,7 +47,6 @@ function refresh() {
         createGrid(grid_size)
     })
 }
-
 
 createGrid(16)
 changeSize()
