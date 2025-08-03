@@ -19,7 +19,9 @@ A simple and fun Etch-a-Sketch-style drawing application built with vanilla Java
 2. Open index.html in your browser:
 
     open index.html      # macOS
+
     start index.html     # Windows
+    
     Or just drag and drop index.html into any web browser.
 
 📁 Project Structure
